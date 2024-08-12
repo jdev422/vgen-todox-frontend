@@ -1,6 +1,7 @@
 const defaultState = {
     body: {
-        name: ""
+        name: "",
+        items: []
     },
     alerts: {
         error: "",
@@ -11,6 +12,24 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
     switch(action.type) {
+        case 'TODO/SET-LIST':
+            return {
+                ...state,
+                body: {
+                  ...state.body,
+                  items: action.items,
+                },
+              };
+        case 'TODO/REPLACE-TODO-ITEM':
+            return {
+                ...state,
+                body: {
+                    ...state.body,
+                    items: state.body.items.map(
+                        item => item._id === action.item._id ? action.item: item
+                    )
+                }
+            }
         case 'TODO/UPDATE-NAME':
             return {
                 ...state,

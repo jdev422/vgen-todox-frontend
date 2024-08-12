@@ -30,3 +30,15 @@ export const updateTodoSuccess = ({success = ""}) => ({
 export const clearTodoAlerts = () => ({
     type: 'TODO/CLEAR-ALERTS'
 });
+
+// TODO/SET-LIST
+export const setTodoList = ({ items = [] }) => ({
+    type: "TODO/SET-LIST",
+    items,
+});
+
+// TODO/REPLACE-TODO-ITEM"
+export const replaceTodoItem = (item) => ({
+    type: "TODO/REPLACE-TODO-ITEM",
+    item,
+})
